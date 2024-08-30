@@ -26,11 +26,16 @@ class HomeViewModel : ViewModel() {
     private val _activeSwitches = MutableLiveData<Set<Int>>().apply { value = emptySet() }
     val activeSwitches: LiveData<Set<Int>> = _activeSwitches
 
+
     fun updateSwitchState(switchId: Int, isChecked: Boolean) {
-        _switchStates.value = _switchStates.value?.plus(switchId to isChecked)
+
     }
 
     fun updateEgoSwitchState(isChecked: Boolean) {
-        _egoSwitchState.value = isChecked
+
+    }
+
+    private fun updateActiveSwitches() {
+
     }
 }
