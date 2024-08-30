@@ -5,10 +5,85 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swthappines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:checked="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:text="Happiness"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swtoptimism"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:text="Optimism"
+        app:layout_constraintBottom_toBottomOf="@+id/swthappines"
+        app:layout_constraintEnd_toStartOf="@+id/swtkindess"
+        app:layout_constraintStart_toEndOf="@+id/swthappines"
+        app:layout_constraintTop_toTopOf="@+id/swthappines" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swtkindess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:checked="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:text="Kindess"
+        app:layout_constraintBottom_toBottomOf="@+id/swtoptimism"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/swtoptimism" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swtgiving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:checked="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:text="Giving"
+        app:layout_constraintStart_toStartOf="@+id/swthappines"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swtrespect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:text="Respect"
+        app:layout_constraintBottom_toBottomOf="@+id/swtgiving"
+        app:layout_constraintEnd_toStartOf="@+id/swtego"
+        app:layout_constraintStart_toEndOf="@+id/swtgiving"
+        app:layout_constraintTop_toTopOf="@+id/swtgiving" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/swtego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:text="Ego"
+        app:layout_constraintBottom_toBottomOf="@+id/swtrespect"
+        app:layout_constraintEnd_toEndOf="@+id/swtkindess"
+        app:layout_constraintTop_toTopOf="@+id/swtrespect" />
+
 
 </FrameLayout>
