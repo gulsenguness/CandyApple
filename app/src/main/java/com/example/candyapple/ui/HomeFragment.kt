@@ -15,6 +15,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class HomeFragment : Fragment() {
+
     private lateinit var binding: FragmentHomeBinding
     private lateinit var bottomNavView: BottomNavigationView
     private val viewModel: HomeViewModel by viewModels()
@@ -29,12 +30,24 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.swthappines.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.updateSwitchState(R.id.swthappines, isChecked)
-        }
+        bottomNavView = requireActivity().findViewById(R.id.bottom_nav)
+
         initializeState()
         setupSwitchListeners()
         observeViewModel()
+    }
+
+
+    private fun handleSwitchAvailability(isChecked: Boolean) {
+        binding.swthappines.isEnabled = isChecked
+        binding.swtoptimism.isEnabled = isChecked
+        binding.swtkindess.isEnabled = isChecked
+        binding.swtgiving.isEnabled = isChecked
+        binding.swtrespect.isEnabled = isChecked
+    }
+
+    private fun initializeState() {
+        viewModel.updateEgoSwitchState(true)
     }
 
     private fun observeViewModel() {
@@ -53,24 +66,12 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initializeState() {
-        viewModel.updateEgoSwitchState(true)
-    }
-
     private fun updateSwitches(switchStates: Map<Int, Boolean>) {
         binding.swthappines.isChecked = switchStates[R.id.swthappines] ?: false
         binding.swtoptimism.isChecked = switchStates[R.id.swtoptimism] ?: false
         binding.swtkindess.isChecked = switchStates[R.id.swtkindess] ?: false
         binding.swtgiving.isChecked = switchStates[R.id.swtgiving] ?: false
         binding.swtrespect.isChecked = switchStates[R.id.swtrespect] ?: false
-    }
-
-    private fun handleSwitchAvailability(isChecked: Boolean) {
-        binding.swthappines.isEnabled = isChecked
-        binding.swtoptimism.isEnabled = isChecked
-        binding.swtkindess.isEnabled = isChecked
-        binding.swtgiving.isEnabled = isChecked
-        binding.swtrespect.isEnabled = isChecked
     }
 
     private fun setupSwitchListeners() {
@@ -124,7 +125,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-
     private fun updateSwitchImages(switchStates: Map<Int, Boolean>) {
 
         val happinessSwitch = binding.swthappines
@@ -167,6 +167,4 @@ class HomeFragment : Fragment() {
             6 -> binding.imageView7.setImageResource(imageId)
         }
     }
-
-
 }
