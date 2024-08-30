@@ -90,6 +90,14 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun updateBottomNavVisibility() {
+        if (viewModel.egoSwitchState.value == true) {
+            bottomNavView.visibility = View.GONE
+        } else {
+            bottomNavView.visibility = View.VISIBLE
+        }
+    }
+
     private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
         val menu = bottomNavView.menu
         menu.clear()
