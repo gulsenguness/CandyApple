@@ -69,6 +69,27 @@ class HomeFragment : Fragment() {
         binding.swtrespect.isEnabled = isChecked
     }
 
+    private fun setupSwitchListeners() {
+        binding.swtego.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.updateEgoSwitchState(isChecked)
+        }
+
+        val switches = listOf(
+            binding.swthappines to R.id.swthappines,
+            binding.swtoptimism to R.id.swtoptimism,
+            binding.swtkindess to R.id.swtkindess,
+            binding.swtgiving to R.id.swtgiving,
+            binding.swtrespect to R.id.swtrespect
+        )
+
+        for (pair in switches) {
+            val (switch, switchId) = pair
+            switch.setOnCheckedChangeListener { _, isChecked ->
+                viewModel.updateSwitchState(switchId, isChecked)
+            }
+        }
+    }
+
     private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
         val menu = bottomNavView.menu
         menu.clear()
