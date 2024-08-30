@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
         binding.swtoptimism.isEnabled = isChecked
         binding.swtkindess.isEnabled = isChecked
         binding.swtgiving.isEnabled = isChecked
-        
+        binding.swtrespect.isEnabled = isChecked
     }
 
     private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
