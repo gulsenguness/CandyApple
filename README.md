@@ -1,6 +1,10 @@
 # CandyApple 🍬🍎
 
-https://github.com/user-attachments/assets/e06eb236-2fe1-41dc-a1ef-627388753800
+
+
+Uploading WhatsApp Video 2024-08-30 at 22.30.18.mp4…
+
+
 
 CandyApple, yaşamınıza biraz renk ve neşe katacak bir Android uygulamasıdır. Switch'ler sayesinde uygulamanın çeşitli özelliklerini kontrol edebilir, eğlenceli ve dinamik bir kullanıcı deneyimi yaşayabilirsiniz. Hazır mısınız? Başlayalım! 🚀
 
