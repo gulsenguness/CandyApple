@@ -31,20 +31,28 @@ class HomeFragment : Fragment() {
         binding.swthappines.setOnCheckedChangeListener { _, isChecked ->
             viewModel.updateSwitchState(R.id.swthappines, isChecked)
         }
-        updateBottomNavMenu()
+
     }
 
     private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
         val menu = bottomNavView.menu
         menu.clear()
 
-        for (i in activeSwitches) {
+        menu.add(Menu.NONE, R.id.homeFragment, Menu.NONE, "Home")
+            .setIcon(R.drawable.smile)
+
+        for (i in activeSwitches.take(5)) {
             val label = when (i) {
                 R.id.swthappines -> "Happiness"
-                // Add other cases
+                R.id.swtoptimism -> "Optimism"
+                R.id.swtkindess -> "Kindness"
+                R.id.swtgiving -> "Giving"
+                R.id.swtrespect -> "Respect"
                 else -> "Unknown"
             }
             menu.add(Menu.NONE, i, Menu.NONE, label)
+                .setIcon(R.drawable.smile)
+
         }
     }
 
