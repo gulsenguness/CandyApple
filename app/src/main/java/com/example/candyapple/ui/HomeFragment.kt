@@ -3,6 +3,7 @@ package com.example.candyapple.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -14,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var bottomNavView: BottomNavigationView
     private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -28,6 +30,21 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.swthappines.setOnCheckedChangeListener { _, isChecked ->
             viewModel.updateSwitchState(R.id.swthappines, isChecked)
+        }
+        updateBottomNavMenu()
+    }
+
+    private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
+        val menu = bottomNavView.menu
+        menu.clear()
+
+        for (i in activeSwitches) {
+            val label = when (i) {
+                R.id.swthappines -> "Happiness"
+                // Add other cases
+                else -> "Unknown"
+            }
+            menu.add(Menu.NONE, i, Menu.NONE, label)
         }
     }
 
