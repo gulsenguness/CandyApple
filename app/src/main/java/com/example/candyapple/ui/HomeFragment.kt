@@ -32,7 +32,9 @@ class HomeFragment : Fragment() {
         binding.swthappines.setOnCheckedChangeListener { _, isChecked ->
             viewModel.updateSwitchState(R.id.swthappines, isChecked)
         }
-
+        initializeState()
+        setupSwitchListeners()
+        observeViewModel()
     }
 
     private fun observeViewModel() {
