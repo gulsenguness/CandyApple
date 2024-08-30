@@ -28,16 +28,23 @@ class HomeViewModel : ViewModel() {
 
 
     fun updateSwitchState(switchId: Int, isChecked: Boolean) {
-        _egoSwitchState.value = isChecked
-        if (isChecked) {
-            _switchStates.value = _switchStates.value?.mapValues { (id, _) ->
-                id == R.id.swtego
-            }
-            activeSwitchOrder.clear()
-            _activeSwitches.value = emptySet()
-        } else {
-            updateActiveSwitches()
+        val egoSwitchOn = _egoSwitchState.value ?: false
+        if (egoSwitchOn && switchId != R.id.swtego) {
+            return
         }
+
+        val currentStates = _switchStates.value ?: return
+        if (isChecked) {
+            if (!activeSwitchOrder.contains(switchId)) {
+                activeSwitchOrder.add(switchId)
+            }
+        } else {
+            activeSwitchOrder.remove(switchId)
+        }
+
+
+        _switchStates.value = currentStates + (switchId to isChecked)
+        updateActiveSwitches()
     }
 
     fun updateEgoSwitchState(isChecked: Boolean) {
