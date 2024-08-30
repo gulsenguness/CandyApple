@@ -54,6 +54,10 @@ class HomeViewModel : ViewModel() {
     }
 
     private fun updateActiveSwitches() {
+        val activeItems = activeSwitchOrder.filter { switchId ->
+            _switchStates.value?.get(switchId) == true
+        }.take(4).toSet()
 
+        _activeSwitches.value = activeItems
     }
 }
