@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.candyapple.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,16 +17,31 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navControl = navHostFragment.navController
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navControl=navHostFragment.navController
+        bottomNavigation()
+    }
+
+    private fun bottomNavigation() {
+        NavigationUI.setupWithNavController(binding.bottomNav, navControl)
+
+        binding.bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.homeFragment -> navigationToFragment(R.id.homeFragment)
+                R.id.swthappines -> navigationToFragment(R.id.happinessFragment)
+                R.id.swtoptimism -> navigationToFragment(R.id.optimismFragment)
+                R.id.swtkindess -> navigationToFragment(R.id.fragment_kindness)
+                R.id.swtgiving -> navigationToFragment(R.id.givingFragment2)
+                R.id.swtrespect -> navigationToFragment(R.id.respectFragment)
+            }
+            true
         }
+    }
+
+    private fun navigationToFragment(fragmentId: Int) {
+        val navControl = navHostFragment.navController
+        navControl.navigate(fragmentId)
     }
 }
