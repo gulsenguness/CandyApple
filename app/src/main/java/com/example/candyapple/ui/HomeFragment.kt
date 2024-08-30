@@ -48,6 +48,11 @@ class HomeFragment : Fragment() {
             updateBottomNavMenu(activeSwitches)
         }
     }
+
+    private fun initializeState() {
+        viewModel.updateEgoSwitchState(true)
+    }
+
     private fun updateSwitches(switchStates: Map<Int, Boolean>) {
         binding.swthappines.isChecked = switchStates[R.id.swthappines] ?: false
         binding.swtoptimism.isChecked = switchStates[R.id.swtoptimism] ?: false
