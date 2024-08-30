@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.switchStates.observe(viewLifecycleOwner) { switchStates ->
-
+            updateSwitchImages(switchStates)
         }
 
         viewModel.activeSwitches.observe(viewLifecycleOwner) { activeSwitches ->
