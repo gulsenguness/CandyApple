@@ -61,6 +61,14 @@ class HomeFragment : Fragment() {
         binding.swtrespect.isChecked = switchStates[R.id.swtrespect] ?: false
     }
 
+    private fun handleSwitchAvailability(isChecked: Boolean) {
+        binding.swthappines.isEnabled = isChecked
+        binding.swtoptimism.isEnabled = isChecked
+        binding.swtkindess.isEnabled = isChecked
+        binding.swtgiving.isEnabled = isChecked
+        binding.swtrespect.isEnabled = isChecked
+    }
+
     private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
         val menu = bottomNavView.menu
         menu.clear()
