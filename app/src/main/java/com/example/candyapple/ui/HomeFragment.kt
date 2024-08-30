@@ -35,6 +35,20 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun observeViewModel() {
+        viewModel.egoSwitchState.observe(viewLifecycleOwner) { isChecked ->
+
+        }
+
+        viewModel.switchStates.observe(viewLifecycleOwner) { switchStates ->
+
+        }
+
+        viewModel.activeSwitches.observe(viewLifecycleOwner) { activeSwitches ->
+            updateBottomNavMenu(activeSwitches)
+        }
+    }
+
     private fun updateBottomNavMenu(activeSwitches: Set<Int>) {
         val menu = bottomNavView.menu
         menu.clear()
