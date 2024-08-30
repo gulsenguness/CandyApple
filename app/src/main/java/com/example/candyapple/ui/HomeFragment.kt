@@ -39,10 +39,12 @@ class HomeFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel.egoSwitchState.observe(viewLifecycleOwner) { isChecked ->
-
+            updateBottomNavVisibility()
+            handleSwitchAvailability(isChecked.not())
         }
 
         viewModel.switchStates.observe(viewLifecycleOwner) { switchStates ->
+            updateSwitches(switchStates)
             updateSwitchImages(switchStates)
         }
 
