@@ -41,7 +41,16 @@ class HomeViewModel : ViewModel() {
     }
 
     fun updateEgoSwitchState(isChecked: Boolean) {
-
+        _egoSwitchState.value = isChecked
+        if (isChecked) {
+            _switchStates.value = _switchStates.value?.mapValues { (id, _) ->
+                id == R.id.swtego
+            }
+            activeSwitchOrder.clear()
+            _activeSwitches.value = emptySet()
+        } else {
+            updateActiveSwitches()
+        }
     }
 
     private fun updateActiveSwitches() {
