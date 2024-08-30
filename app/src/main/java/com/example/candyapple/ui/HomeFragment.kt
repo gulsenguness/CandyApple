@@ -11,6 +11,7 @@ import com.example.candyapple.R
 import com.example.candyapple.databinding.FragmentHomeBinding
 import com.example.candyapple.viewmodel.HomeViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 class HomeFragment : Fragment() {
@@ -53,6 +54,50 @@ class HomeFragment : Fragment() {
             menu.add(Menu.NONE, i, Menu.NONE, label)
                 .setIcon(R.drawable.smile)
 
+        }
+    }
+
+
+    private fun updateSwitchImages(switchStates: Map<Int, Boolean>) {
+
+        val happinessSwitch = binding.swthappines
+        updateImage(happinessSwitch, 1)
+
+        val optimismSwitch = binding.swtoptimism
+        updateImage(optimismSwitch, 2)
+
+        val kindessSwitch = binding.swtkindess
+        updateImage(kindessSwitch, 3)
+
+        val givingSwitch = binding.swtgiving
+        updateImage(givingSwitch, 4)
+
+        val respectSwitch = binding.swtrespect
+        updateImage(respectSwitch, 5)
+
+        val egoSwitch = binding.swtego
+        updateImage(egoSwitch, 6)
+
+
+    }
+
+    private fun updateImage(switchView: SwitchMaterial, imageIndex: Int) {
+        val imageId = when (imageIndex) {
+            1 -> if (switchView.isChecked) R.drawable.open else R.drawable.close
+            2 -> if (switchView.isChecked) R.drawable.kalpopen2 else R.drawable.kalpclose2
+            3 -> if (switchView.isChecked) R.drawable.fopen else R.drawable.fclose
+            4 -> if (switchView.isChecked) R.drawable.kalpopen3 else R.drawable.kalpclose3
+            5 -> if (switchView.isChecked) R.drawable.apencat else R.drawable.cloecat
+            6 -> if (switchView.isChecked) R.drawable.egoclose else R.drawable.egoclose
+            else -> R.drawable.egoclose
+        }
+        when (imageIndex) {
+            1 -> binding.imageView.setImageResource(imageId)
+            2 -> binding.imageView2.setImageResource(imageId)
+            3 -> binding.imageView4.setImageResource(imageId)
+            4 -> binding.imageView5.setImageResource(imageId)
+            5 -> binding.imageView6.setImageResource(imageId)
+            6 -> binding.imageView7.setImageResource(imageId)
         }
     }
 
