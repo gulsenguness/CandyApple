@@ -1,5 +1,7 @@
 # CandyApple 🍬🍎
 
+https://github.com/user-attachments/assets/e06eb236-2fe1-41dc-a1ef-627388753800
+
 CandyApple, yaşamınıza biraz renk ve neşe katacak bir Android uygulamasıdır. Switch'ler sayesinde uygulamanın çeşitli özelliklerini kontrol edebilir, eğlenceli ve dinamik bir kullanıcı deneyimi yaşayabilirsiniz. Hazır mısınız? Başlayalım! 🚀
 
 ## Switch'ler: Başroldeki Yıldızlar
@@ -81,6 +83,5 @@ Herhangi bir sorunuz, öneriniz veya geri bildiriminiz varsa, bana ulaşabilirsi
 Uygulamanın tadını çıkarın ve katkılarınızı bekliyoruz! 🍏💖
 
 
-https://github.com/user-attachments/assets/e06eb236-2fe1-41dc-a1ef-627388753800
 
 
