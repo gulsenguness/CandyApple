@@ -28,9 +28,15 @@ class HomeViewModel : ViewModel() {
 
 
     fun updateSwitchState(switchId: Int, isChecked: Boolean) {
-        fun updateSwitchState(switchId: Int, isChecked: Boolean) {
-            val currentStates = _switchStates.value ?: emptyMap()
-            _switchStates.value = currentStates + (switchId to isChecked)
+        _egoSwitchState.value = isChecked
+        if (isChecked) {
+            _switchStates.value = _switchStates.value?.mapValues { (id, _) ->
+                id == R.id.swtego
+            }
+            activeSwitchOrder.clear()
+            _activeSwitches.value = emptySet()
+        } else {
+            updateActiveSwitches()
         }
     }
 
