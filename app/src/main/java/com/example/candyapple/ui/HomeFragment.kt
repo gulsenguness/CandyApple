@@ -39,13 +39,21 @@ class HomeFragment : Fragment() {
         val menu = bottomNavView.menu
         menu.clear()
 
-        activeSwitches.forEach { switchId ->
-            val label = when (switchId) {
+        menu.add(Menu.NONE, R.id.homeFragment, Menu.NONE, "Home")
+            .setIcon(R.drawable.smile)
+
+        for (i in activeSwitches.take(5)) {
+            val label = when (i) {
                 R.id.swthappines -> "Happiness"
-                // Add other cases
+                R.id.swtoptimism -> "Optimism"
+                R.id.swtkindess -> "Kindness"
+                R.id.swtgiving -> "Giving"
+                R.id.swtrespect -> "Respect"
                 else -> "Unknown"
             }
-            menu.add(Menu.NONE, switchId, Menu.NONE, label)
+            menu.add(Menu.NONE, i, Menu.NONE, label)
+                .setIcon(R.drawable.smile)
+
         }
     }
 
